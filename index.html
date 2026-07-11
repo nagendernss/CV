@@ -1,62 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nagender Swaroop Srivastava</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@500&family=Sacramento&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nagender Swaroop Srivastava — Software Engineer</title>
+  <meta name="description" content="Nagender Swaroop Srivastava — Software Engineer building AI agents, real-time voice systems and scalable backends. Ex-Clear, @ Plivo. IIT (BHU) Varanasi." />
+  <meta name="author" content="Nagender Swaroop Srivastava" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nagender Swaroop Srivastava — Software Engineer" />
+  <meta property="og:description" content="Building AI agents, real-time voice systems and scalable backends. @ Plivo · IIT (BHU) Varanasi." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0d'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='62' fill='%23d9f24a' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="top-div">
-        <img src="cloud.png" alt="cloud-image" class="top-cloud">
-        <h1>I am Nagender</h1>
-        <p>a <span class="stu">stu</span>dent.</p>
-        <img src="cloud.png" alt="cloud-image" class="bottom-cloud">
-        <img src="mountain.png" alt="cloud-image">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#top" class="nav__mark">NSS<span>_</span></a>
+    <nav class="nav__links">
+      <a href="#about">01 · About</a>
+      <a href="#work">02 · Work</a>
+      <a href="#arsenal">03 · Skills</a>
+      <a href="#build">04 · Projects</a>
+      <a href="#arena">05 · CP</a>
+      <a href="#contact">06 · Contact</a>
+    </nav>
+    <a class="nav__cta" href="Nagender_Swaroop_Srivastava.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__meta reveal">
+      <span class="tag"><span class="dot"></span> Software Engineer @ Plivo</span>
+      <span class="tag tag--muted">Bangalore, India</span>
     </div>
-    <div class="middle-container">
-        <div class="profile">
-          <img src="profile-pic.jpeg" alt="profile-pic" style="border-radius: 40%; height: 200px;">
-          <h2>Hello.</h2>
-          <p class="intro">I am an undergraduate pursuing B. Tech from IIT BHU. I ❤ to code.</p>
-        </div>
-        <hr>
-        <div class="skills">
-          <h2>My Skills.</h2>
-          <div class="skill-row">
-            <img class="cp" src="coding.gif" alt="coding-guy">
-            <h3>Competitve Programmer</h3>
-            <p>I am a competitve programmer. Reached 5 ⭐ on Codechef and specialist (1488) on Codeforces</p>
-          </div>
-          <div class="skill-row">
-            <img class="dev" src="software-development.gif" alt="website-developer">
-            <h3>Web developer</h3>
-            <p>I have just started learning web development. Already enjoying too much, waiting for new challenges and new learnings to come.</p>
-          </div>
-        </div>
-        <hr>
-        <div class="contact-me">
-          <h2>Get In Touch</h2>
-          <h3>Do you love to code ?</h3>
-          <p class="contact-messege">Love coding as much I do?  Let's talk about how awesome it is! Also we can have a cup of coffee too ❤</p>
-          <a class="btn" href="mailto:nagendersrivastav3007@gmail.com" target="_blank">CONTACT ME</a>
-          <br><br>
-          <hr>
-        </div>
+
+    <h1 class="hero__name">
+      <span class="reveal" style="--d:.05s">Nagender</span>
+      <span class="reveal" style="--d:.13s">Swaroop <em>Srivastava</em></span>
+    </h1>
+
+    <p class="hero__blurb reveal" style="--d:.24s">
+      I build <span class="hl">AI agents</span>, <span class="hl">real-time voice systems</span>
+      and <span class="hl">scalable backends</span>. Currently engineering the AI layer at Plivo —
+      previously recovered ₹20&nbsp;Cr+ at Clear. Ex-competitive programmer who never really stopped.
+    </p>
+
+    <div class="hero__row reveal" style="--d:.34s">
+      <a class="btn btn--solid" href="#contact">Get in touch</a>
+      <a class="btn" href="Nagender_Swaroop_Srivastava.pdf" target="_blank" rel="noopener">Download Résumé</a>
+    </div>
+
+    <ul class="hero__socials reveal" style="--d:.44s">
+      <li><a href="https://github.com/nagendernss" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/nagender-swaroop-srivastava" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://leetcode.com/u/nagendernss/" target="_blank" rel="noopener">LeetCode</a></li>
+      <li><a href="https://www.codechef.com/users/nagendernss" target="_blank" rel="noopener">CodeChef</a></li>
+      <li><a href="https://codeforces.com/profile/nagendernss" target="_blank" rel="noopener">Codeforces</a></li>
+    </ul>
+
+    <div class="scroll-hint reveal" style="--d:.6s">scroll <span>↓</span></div>
+  </section>
+
+  <!-- IMPACT STRIP -->
+  <section class="strip" aria-label="Impact">
+    <div class="strip__item"><span class="strip__num" data-count="20">₹20 Cr+</span><span class="strip__lbl">revenue recovered</span></div>
+    <div class="strip__item"><span class="strip__num">2,500<span class="unit">/min</span></span><span class="strip__lbl">requests served at peak</span></div>
+    <div class="strip__item"><span class="strip__num">30+</span><span class="strip__lbl">engineers use my debug agent</span></div>
+    <div class="strip__item"><span class="strip__num">+15<span class="unit">%</span></span><span class="strip__lbl">call completion uplift</span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section__head">
+      <span class="section__idx">01</span>
+      <h2 class="section__title">About</h2>
+    </div>
+    <div class="about">
+      <div class="about__photo">
+        <img src="profile-pic.jpeg" alt="Nagender Swaroop Srivastava" loading="lazy" />
+        <span class="about__photo-cap">// nagendernss</span>
       </div>
-      
-      
-      <div class="bottom-container">
-        <a class="footer-link" href="https://www.linkedin.com/in/nagender-swaroop-srivastava-532653208/" target="_blank">LinkedIn</a>
-        <a class="footer-link" href="https://www.facebook.com/nagender.swaroopsrivastav/" target="_blank">Facebook</a>
-        <a class="footer-link" href="https://www.instagram.com/nagendernss/" target="_blank">Instagram</a>
-        <p class="copyright">© Nagender Swaroop Srivastava.</p>
+      <div class="about__body">
+        <p>
+          I'm a software engineer who likes the hard middle of the stack — where LLM agents meet
+          production infrastructure. At <strong>Plivo</strong> I build the AI agent platform: a
+          PII-safe debugging agent that root-causes customer issues in minutes, bring-your-own-model
+          voice flows, and real-time call detection on LiveKit.
+        </p>
+        <p>
+          Before that, at <strong>Clear</strong>, I worked on high-throughput distributed systems —
+          PDF generation at 2,500+ req/min, and auto-renewal infrastructure that recovered ₹20&nbsp;Cr+.
+        </p>
+        <p>
+          I studied at <strong>IIT (BHU) Varanasi</strong> and spent years in competitive programming —
+          <span class="hl">CodeChef 5★</span>, <span class="hl">Codeforces Specialist</span>,
+          <span class="hl">LeetCode Knight</span>. That instinct for tight, correct code still shows up
+          in everything I ship.
+        </p>
+        <dl class="about__facts">
+          <div><dt>Based in</dt><dd>Bangalore, India</dd></div>
+          <div><dt>Focus</dt><dd>AI Agents · Voice · Backends</dd></div>
+          <div><dt>Languages</dt><dd>Java · Python · Go · C++</dd></div>
+          <div><dt>Education</dt><dd>IIT (BHU) — CGPA 8.21</dd></div>
+        </dl>
       </div>
-      
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="section__head">
+      <span class="section__idx">02</span>
+      <h2 class="section__title">Work</h2>
+    </div>
+
+    <div class="timeline">
+      <article class="job reveal-up">
+        <div class="job__side">
+          <span class="job__co">Plivo</span>
+          <span class="job__role">Software Development Engineer</span>
+          <span class="job__date">Oct 2025 — Present</span>
+          <span class="job__loc">Bangalore</span>
+        </div>
+        <ul class="job__points">
+          <li><strong>AI-powered debugging agent.</strong> Engineered an LLM agent (OpenAI/Anthropic SDKs, tool calling) that root-causes issues from a conversation ID — masking all PII, generating OpenSearch queries, and synthesizing root-cause + fix steps. Adopted by 30+ people; triage went from a day to minutes.</li>
+          <li><strong>Bring-your-own-model voice agents.</strong> Built STREAM nodes letting customers plug their own TTS/STT/LLM into voice &amp; text flows — a provider-agnostic backend integrating ElevenLabs, Deepgram and OpenAI/Claude in the Plivo agent builder.</li>
+          <li><strong>Real-time voicemail &amp; call-screening detection.</strong> A LiveKit algorithm classifying voicemail/screening scenarios, orchestrating message playback and handling mid-screening pickup for a seamless live handoff.</li>
+          <li><strong>Human-like background audio.</strong> Configurable ambient sound injected into live calls — making agent conversations feel less bot-like, lifting call completion by 15%.</li>
+          <li><strong>Model evaluation &amp; tooling.</strong> Ran PTU throughput/cost evals across GPT-4o, GPT-5 mini and GPT-4.1 mini; added sandboxed custom-code execution for agents via e2b.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal-up">
+        <div class="job__side">
+          <span class="job__co">Clear <em>(ClearTax)</em></span>
+          <span class="job__role">Software Development Engineer</span>
+          <span class="job__date">Jun 2024 — Aug 2025</span>
+          <span class="job__loc">Bangalore</span>
+        </div>
+        <ul class="job__points">
+          <li><strong>PDF generation service.</strong> Fixed critical DSC &amp; password-protection bugs in a service handling 2,500+ req/min at peak, and shipped multi-language field translation with zero-downtime deploys.</li>
+          <li><strong>Revenue-driving auto-renewal.</strong> Architected a microservices solution for addon-based pricing across licensing and order-generation systems — directly contributing to ₹20&nbsp;Cr+ in revenue recovery.</li>
+          <li><strong>Multi-tenant API platform.</strong> Built a chatbot + automated ticketing system with admin-only ticket visibility and strict role-based access control across workspaces.</li>
+          <li><strong>Enterprise security.</strong> Extended the clear-util library with an annotation validating user cookies against a vault-stored whitelist — annotation-driven endpoint access control.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal-up">
+        <div class="job__side">
+          <span class="job__co">FMC Weekend</span>
+          <span class="job__role">Marketing Head · Film &amp; Media Council, IIT&nbsp;BHU</span>
+          <span class="job__date">Sep 2022 — Feb 2023</span>
+          <span class="job__loc">Varanasi</span>
+        </div>
+        <ul class="job__points">
+          <li><strong>Led marketing for India's largest digital arts fest.</strong> Managed 15+ team members by matching tasks to strengths, and secured 30 sponsors through strategic outreach — a 50% increase over the previous year.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="arsenal">
+    <div class="section__head">
+      <span class="section__idx">03</span>
+      <h2 class="section__title">Skills</h2>
+    </div>
+    <div class="skills">
+      <div class="skills__group reveal-up">
+        <h3>Languages</h3>
+        <ul><li>Java</li><li>Python</li><li>Go</li><li>C++</li></ul>
+      </div>
+      <div class="skills__group reveal-up">
+        <h3>AI / ML</h3>
+        <ul><li>LLM Agents</li><li>Tool Calling</li><li>Prompt Engineering</li><li>OpenAI</li><li>Anthropic SDK</li><li>Azure OpenAI</li><li>LLM Evaluations</li><li>e2b</li><li>ElevenLabs</li><li>Deepgram</li><li>LiveKit</li></ul>
+      </div>
+      <div class="skills__group reveal-up">
+        <h3>Backend &amp; Infra</h3>
+        <ul><li>Spring Boot</li><li>REST APIs</li><li>Microservices</li><li>AWS (SQS · SNS · Lambda)</li><li>Kubernetes</li><li>Jenkins</li></ul>
+      </div>
+      <div class="skills__group reveal-up">
+        <h3>Data &amp; Ops</h3>
+        <ul><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>OpenSearch</li><li>Grafana</li><li>New Relic</li><li>Coralogix</li><li>Git · Postman · Retool</li></ul>
+      </div>
+      <div class="skills__group reveal-up">
+        <h3>Foundations</h3>
+        <ul><li>Data Structures</li><li>Algorithms</li><li>OOP</li><li>DBMS</li><li>Competitive Programming</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="build">
+    <div class="section__head">
+      <span class="section__idx">04</span>
+      <h2 class="section__title">Projects</h2>
+    </div>
+    <div class="projects">
+      <a class="project reveal-up" href="https://github.com/nagendernss/url_shortener" target="_blank" rel="noopener">
+        <div class="project__top">
+          <h3>URL Shortener</h3>
+          <span class="project__arrow">↗</span>
+        </div>
+        <p>A full-stack URL shortener with custom aliases, click tracking, expiration controls and full Swagger/OpenAPI docs. Optimized MongoDB schema with indexing and analytics aggregation for real-time dashboard metrics.</p>
+        <ul class="project__tags"><li>Java</li><li>Spring Boot</li><li>MongoDB</li><li>Thymeleaf</li><li>Swagger</li></ul>
+      </a>
+
+      <a class="project project--ghost reveal-up" href="https://github.com/nagendernss" target="_blank" rel="noopener">
+        <div class="project__top">
+          <h3>More on GitHub</h3>
+          <span class="project__arrow">↗</span>
+        </div>
+        <p>Side experiments, competitive-programming solutions and work-in-progress builds live on my GitHub.</p>
+        <ul class="project__tags"><li>@nagendernss</li></ul>
+      </a>
+    </div>
+  </section>
+
+  <!-- CP / ARENA -->
+  <section class="section section--arena" id="arena">
+    <div class="section__head">
+      <span class="section__idx">05</span>
+      <h2 class="section__title">Competitive Programming</h2>
+    </div>
+    <p class="arena__lead reveal-up">Years in the arena. A few numbers I'm proud of.</p>
+    <div class="arena">
+      <a class="stat reveal-up" href="https://www.codechef.com/users/nagendernss" target="_blank" rel="noopener">
+        <span class="stat__plat">CodeChef</span>
+        <span class="stat__big">5<span class="star">★</span></span>
+        <span class="stat__rating">Rating 2026</span>
+        <span class="stat__note">Global Rank 16 · Snackdown 2021</span>
+      </a>
+      <a class="stat reveal-up" href="https://codeforces.com/profile/nagendernss" target="_blank" rel="noopener">
+        <span class="stat__plat">Codeforces</span>
+        <span class="stat__big">1595</span>
+        <span class="stat__rating">Specialist</span>
+        <span class="stat__note">Global Rank 202 · Round #797 · 19K+ players</span>
+      </a>
+      <a class="stat reveal-up" href="https://leetcode.com/u/nagendernss/" target="_blank" rel="noopener">
+        <span class="stat__plat">LeetCode</span>
+        <span class="stat__big">2052</span>
+        <span class="stat__rating">Knight</span>
+        <span class="stat__note">Global Rank 114 · Biweekly 112 · 30K+ players</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--contact" id="contact">
+    <div class="section__head">
+      <span class="section__idx">06</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <div class="contact">
+      <p class="contact__pitch">
+        Building something at the edge of AI and infrastructure? Or just want to talk about a
+        gnarly algorithm problem? <em>Let's talk.</em>
+      </p>
+      <a class="contact__mail" href="mailto:nagendernss.work@gmail.com">nagendernss.work@gmail.com</a>
+      <ul class="contact__links">
+        <li><a href="https://github.com/nagendernss" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nagender-swaroop-srivastava" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="tel:+918058414184">+91 80584 14184</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 Nagender Swaroop Srivastava</span>
+    <span class="foot__built">Built with plain HTML/CSS/JS · hosted on GitHub Pages</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
