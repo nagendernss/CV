@@ -47,16 +47,19 @@
 
   <div class="grain" aria-hidden="true"></div>
 
+  <!-- scroll progress rail (replaces the hidden scrollbar) -->
+  <div class="rail" aria-hidden="true"><span class="rail__fill" id="railFill"></span></div>
+
   <!-- NAV -->
   <header class="nav" id="nav">
-    <a href="#top" class="nav__mark"><span class="nav__logo">N</span> Nagender<span class="nav__mark-sub">·SS</span></a>
+    <a href="#top" class="nav__mark" data-scrollto><span class="nav__logo">N</span> Nagender<span class="nav__mark-sub">·SS</span></a>
     <nav class="nav__tabs">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#arena">CP</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-scrollto>About</a>
+      <a href="#work" data-scrollto>Work</a>
+      <a href="#skills" data-scrollto>Skills</a>
+      <a href="#projects" data-scrollto>Projects</a>
+      <a href="#arena" data-scrollto>CP</a>
+      <a href="#contact" data-scrollto>Contact</a>
     </nav>
     <div class="nav__right">
       <button class="nav__toggle" id="themeToggle" type="button" aria-label="Toggle light / dark theme" title="Toggle theme">
@@ -67,7 +70,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- SCENE 0 · HERO (loads animated, not pinned) -->
   <section class="hero" id="top">
     <div class="hero__bg" aria-hidden="true">
       <span class="blob blob--1"></span>
@@ -84,8 +87,8 @@
         Previously recovered ₹20&nbsp;Cr+ at Clear. Ex-competitive programmer who never really stopped.
       </p>
       <div class="hero__cta reveal" style="--d:.28s">
-        <a class="btn btn--solid" href="#work">View work <svg class="ic"><use href="#ic-arrow"/></svg></a>
-        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        <a class="btn btn--solid" href="#work" data-scrollto>View work <svg class="ic"><use href="#ic-arrow"/></svg></a>
+        <a class="btn btn--ghost" href="#contact" data-scrollto>Get in touch</a>
       </div>
       <ul class="hero__socials reveal" style="--d:.38s">
         <li><a href="https://github.com/nagendernss" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-gh"/></svg>GitHub</a></li>
@@ -94,15 +97,16 @@
         <li><a href="https://www.codechef.com/users/nagendernss" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-cc"/></svg>CodeChef</a></li>
         <li><a href="https://codeforces.com/profile/nagendernss" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-cf"/></svg>Codeforces</a></li>
       </ul>
+      <div class="scroll-hint reveal" style="--d:.55s">scroll <span>↓</span></div>
     </div>
   </section>
 
-  <!-- 3D SCROLL SHOWCASE — device tucks under the desk -->
-  <section class="showcase" id="showcase" aria-label="Featured build">
-    <div class="showcase__sticky">
+  <!-- SCENE 1 · 3D SHOWCASE (device tucks under the desk) -->
+  <section class="scene scene--showcase" id="showcase" data-scene aria-label="Featured build">
+    <div class="scene__pin">
       <div class="stage">
         <div class="ground" aria-hidden="true"></div>
-        <div class="device" id="device">
+        <div class="device">
           <div class="device__bar">
             <span class="device__dots"><i></i><i></i><i></i></span>
             <span class="device__title">agent-debugger · session</span>
@@ -113,7 +117,7 @@
             <p><span class="c-ok">✓</span> OpenSearch query built · 1,204 logs</p>
             <p><span class="c-ok">✓</span> root cause: TTS timeout on cold start</p>
             <p><span class="c-key">→</span> fix: pre-warm provider pool · retry w/ backoff</p>
-            <p class="blink"><span class="c-dim">triaged in 42s</span> <span class="cursor">▋</span></p>
+            <p><span class="c-dim">triaged in 42s</span> <span class="cursor">▋</span></p>
           </div>
         </div>
       </div>
@@ -123,185 +127,215 @@
     </div>
   </section>
 
-  <!-- IMPACT CARDS -->
-  <section class="impact">
-    <article class="impact__card reveal-up"><span class="impact__num">₹20 Cr+</span><span class="impact__lbl">revenue recovered at Clear</span></article>
-    <article class="impact__card reveal-up"><span class="impact__num">2,500<span class="unit">/min</span></span><span class="impact__lbl">requests served at peak</span></article>
-    <article class="impact__card reveal-up"><span class="impact__num">30+</span><span class="impact__lbl">engineers use my debug agent</span></article>
-    <article class="impact__card reveal-up"><span class="impact__num">+15<span class="unit">%</span></span><span class="impact__lbl">call-completion uplift</span></article>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about" style="--sec:var(--emerald)">
-    <span class="tab reveal-up">01 · About</span>
-    <div class="about">
-      <div class="about__photo reveal-up">
-        <img src="profile-pic.jpeg" alt="Nagender Swaroop Srivastava" loading="lazy" />
-        <span class="about__photo-cap">// nagendernss</span>
-      </div>
-      <div class="about__body reveal-up">
-        <h2 class="lead">I like the hard middle of the stack — where LLM agents meet production infrastructure.</h2>
-        <p>
-          At <strong>Plivo</strong> I build the AI agent platform: a PII-safe debugging agent that
-          root-causes customer issues in minutes, bring-your-own-model voice flows, and real-time
-          call detection on LiveKit.
-        </p>
-        <p>
-          Before that, at <strong>Clear</strong>, I worked on high-throughput distributed systems —
-          PDF generation at 2,500+ req/min, and auto-renewal infrastructure that recovered ₹20&nbsp;Cr+.
-        </p>
-        <p>
-          I studied at <strong>IIT (BHU) Varanasi</strong> and spent years in competitive programming.
-          That instinct for tight, correct code still shows up in everything I ship.
-        </p>
-        <dl class="about__facts">
-          <div><dt>Based in</dt><dd>Bangalore, India</dd></div>
-          <div><dt>Focus</dt><dd>AI Agents · Voice · Backends</dd></div>
-          <div><dt>Languages</dt><dd>Java · Python · Go · C++</dd></div>
-          <div><dt>Education</dt><dd>IIT (BHU) — CGPA 8.21</dd></div>
-        </dl>
+  <!-- SCENE 2 · IMPACT (numbers count up one by one) -->
+  <section class="scene" id="impact" data-scene data-steplen="0.55" style="--sec:var(--emerald)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">Impact</span>
+        <h2 class="section__title step">Numbers that shipped.</h2>
+        <div class="impact">
+          <article class="impact__card step"><span class="impact__num"><span class="count" data-target="20" data-prefix="₹" data-suffix=" Cr+">₹0 Cr+</span></span><span class="impact__lbl">revenue recovered at Clear</span></article>
+          <article class="impact__card step"><span class="impact__num"><span class="count" data-target="2500" data-group="1" data-suffix="/min">0/min</span></span><span class="impact__lbl">requests served at peak</span></article>
+          <article class="impact__card step"><span class="impact__num"><span class="count" data-target="30" data-suffix="+">0+</span></span><span class="impact__lbl">engineers use my debug agent</span></article>
+          <article class="impact__card step"><span class="impact__num"><span class="count" data-target="15" data-prefix="+" data-suffix="%">+0%</span></span><span class="impact__lbl">call-completion uplift</span></article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WORK -->
-  <section class="section" id="work" style="--sec:var(--sapphire)">
-    <span class="tab reveal-up">02 · Work</span>
-    <h2 class="section__title reveal-up">Where I've built.</h2>
-    <div class="jobs">
-      <article class="jobcard reveal-up">
-        <header class="jobcard__head">
-          <div><h3>Plivo</h3><span class="jobcard__role">Software Development Engineer</span></div>
-          <span class="jobcard__date">Oct 2025 — Present · Bangalore</span>
-        </header>
-        <ul class="jobcard__points">
-          <li><strong>AI-powered debugging agent.</strong> Engineered an LLM agent (OpenAI/Anthropic SDKs, tool calling) that root-causes issues from a conversation ID — masking all PII, generating OpenSearch queries, synthesizing root-cause + fix steps. Adopted by 30+ people; triage went from a day to minutes.</li>
-          <li><strong>Bring-your-own-model voice agents.</strong> Built STREAM nodes letting customers plug their own TTS/STT/LLM into voice &amp; text flows — a provider-agnostic backend integrating ElevenLabs, Deepgram and OpenAI/Claude.</li>
-          <li><strong>Real-time voicemail &amp; call-screening detection.</strong> A LiveKit algorithm classifying voicemail/screening scenarios, orchestrating playback and handling mid-screening pickup for a seamless live handoff.</li>
-          <li><strong>Human-like background audio.</strong> Configurable ambient sound injected into live calls — lifting call completion by 15%.</li>
-          <li><strong>Model evaluation &amp; tooling.</strong> PTU throughput/cost evals across GPT-4o, GPT-5 mini and GPT-4.1 mini; sandboxed custom-code execution via e2b.</li>
+  <!-- SCENE 3 · ABOUT -->
+  <section class="scene" id="about" data-scene style="--sec:var(--emerald)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">01 · About</span>
+        <div class="about">
+          <div class="about__photo step">
+            <img src="profile-pic.jpeg" alt="Nagender Swaroop Srivastava" loading="lazy" />
+            <span class="about__photo-cap">// nagendernss</span>
+          </div>
+          <div class="about__body">
+            <h2 class="lead step">I like the hard middle of the stack — where LLM agents meet production infrastructure.</h2>
+            <p class="step">
+              At <strong>Plivo</strong> I build the AI agent platform: a PII-safe debugging agent that
+              root-causes customer issues in minutes, bring-your-own-model voice flows, and real-time
+              call detection on LiveKit. Before that, at <strong>Clear</strong> — high-throughput
+              distributed systems, PDF generation at 2,500+ req/min, ₹20&nbsp;Cr+ recovered.
+            </p>
+            <p class="step">
+              I studied at <strong>IIT (BHU) Varanasi</strong> and spent years in competitive programming.
+              That instinct for tight, correct code still shows up in everything I ship.
+            </p>
+            <dl class="about__facts step">
+              <div><dt>Based in</dt><dd>Bangalore, India</dd></div>
+              <div><dt>Focus</dt><dd>AI Agents · Voice · Backends</dd></div>
+              <div><dt>Languages</dt><dd>Java · Python · Go · C++</dd></div>
+              <div><dt>Education</dt><dd>IIT (BHU) — CGPA 8.21</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 4 · WORK (deck — one job card at a time) -->
+  <section class="scene scene--deck" id="work" data-scene data-deck style="--sec:var(--sapphire)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <div class="deck__head">
+          <span class="tab">02 · Work</span>
+          <h2 class="section__title">Where I've built.</h2>
+        </div>
+        <div class="deck">
+          <article class="jobcard deck-card" data-card>
+            <header class="jobcard__head">
+              <div><h3>Plivo</h3><span class="jobcard__role">Software Development Engineer</span></div>
+              <span class="jobcard__date">Oct 2025 — Present · Bangalore</span>
+            </header>
+            <ul class="jobcard__points">
+              <li><strong>AI-powered debugging agent.</strong> LLM agent (OpenAI/Anthropic SDKs, tool calling) that root-causes issues from a conversation ID — masking PII, generating OpenSearch queries, synthesizing fix steps. Adopted by 30+ people; triage from a day to minutes.</li>
+              <li><strong>Bring-your-own-model voice agents.</strong> STREAM nodes letting customers plug their own TTS/STT/LLM into voice &amp; text flows — provider-agnostic backend for ElevenLabs, Deepgram, OpenAI/Claude.</li>
+              <li><strong>Real-time voicemail &amp; call-screening detection.</strong> LiveKit algorithm classifying voicemail/screening, orchestrating playback, handling mid-screening pickup.</li>
+              <li><strong>Human-like background audio.</strong> Ambient sound in live calls — call completion +15%.</li>
+              <li><strong>Model evals &amp; tooling.</strong> PTU throughput/cost evals (GPT-4o, GPT-5 mini, GPT-4.1 mini); sandboxed code execution via e2b.</li>
+            </ul>
+          </article>
+
+          <article class="jobcard deck-card" data-card>
+            <header class="jobcard__head">
+              <div><h3>Clear <em>(ClearTax)</em></h3><span class="jobcard__role">Software Development Engineer</span></div>
+              <span class="jobcard__date">Jun 2024 — Aug 2025 · Bangalore</span>
+            </header>
+            <ul class="jobcard__points">
+              <li><strong>PDF generation service.</strong> Fixed critical DSC &amp; password-protection bugs at 2,500+ req/min peak; multi-language field translation with zero-downtime deploys.</li>
+              <li><strong>Revenue-driving auto-renewal.</strong> Microservices for addon-based pricing across licensing and order systems — ₹20&nbsp;Cr+ recovered.</li>
+              <li><strong>Multi-tenant API platform.</strong> Chatbot + automated ticketing with admin-only visibility and role-based access control.</li>
+              <li><strong>Enterprise security.</strong> clear-util annotation validating cookies against a vault-stored whitelist — annotation-driven endpoint access.</li>
+            </ul>
+          </article>
+
+          <article class="jobcard deck-card" data-card>
+            <header class="jobcard__head">
+              <div><h3>FMC Weekend</h3><span class="jobcard__role">Marketing Head · Film &amp; Media Council, IIT&nbsp;BHU</span></div>
+              <span class="jobcard__date">Sep 2022 — Feb 2023 · Varanasi</span>
+            </header>
+            <ul class="jobcard__points">
+              <li><strong>Led marketing for India's largest digital arts fest.</strong> Managed 15+ team members by matching tasks to strengths; secured 30 sponsors — 50% up on the previous year.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="deck__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 5 · SKILLS -->
+  <section class="scene" id="skills" data-scene style="--sec:var(--violet)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">03 · Skills</span>
+        <h2 class="section__title step">The toolkit.</h2>
+        <div class="skills">
+          <article class="skillcard step">
+            <h3><svg class="ic"><use href="#ic-code"/></svg>Languages</h3>
+            <ul><li>Java</li><li>Python</li><li>Go</li><li>C++</li></ul>
+          </article>
+          <article class="skillcard step">
+            <h3><svg class="ic"><use href="#ic-ai"/></svg>AI / ML</h3>
+            <ul><li>LLM Agents</li><li>Tool Calling</li><li>Prompt Engineering</li><li>OpenAI</li><li>Anthropic SDK</li><li>Azure OpenAI</li><li>LLM Evaluations</li><li>e2b</li><li>ElevenLabs</li><li>Deepgram</li><li>LiveKit</li></ul>
+          </article>
+          <article class="skillcard step">
+            <h3><svg class="ic"><use href="#ic-server"/></svg>Backend &amp; Infra</h3>
+            <ul><li>Spring Boot</li><li>REST APIs</li><li>Microservices</li><li>AWS (SQS · SNS · Lambda)</li><li>Kubernetes</li><li>Jenkins</li></ul>
+          </article>
+          <article class="skillcard step">
+            <h3><svg class="ic"><use href="#ic-db"/></svg>Data &amp; Ops</h3>
+            <ul><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>OpenSearch</li><li>Grafana</li><li>New Relic</li><li>Coralogix</li><li>Git · Postman · Retool</li></ul>
+          </article>
+          <article class="skillcard step">
+            <h3><svg class="ic"><use href="#ic-book"/></svg>Foundations</h3>
+            <ul><li>Data Structures</li><li>Algorithms</li><li>OOP</li><li>DBMS</li><li>Competitive Programming</li></ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 6 · PROJECTS -->
+  <section class="scene" id="projects" data-scene style="--sec:var(--coral)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">04 · Projects</span>
+        <h2 class="section__title step">Things I've shipped.</h2>
+        <div class="projects">
+          <a class="projcard step" href="https://github.com/nagendernss/url_shortener" target="_blank" rel="noopener">
+            <div class="projcard__top"><h3>URL Shortener</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
+            <p>Full-stack URL shortener with custom aliases, click tracking, expiration controls and Swagger/OpenAPI docs. Optimized MongoDB schema with indexing and analytics aggregation.</p>
+            <ul class="tags"><li>Java</li><li>Spring Boot</li><li>MongoDB</li><li>Thymeleaf</li><li>Swagger</li></ul>
+          </a>
+          <a class="projcard projcard--ghost step" href="https://github.com/nagendernss" target="_blank" rel="noopener">
+            <div class="projcard__top"><h3>More on GitHub</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
+            <p>Side experiments, competitive-programming solutions and work-in-progress builds live on my GitHub.</p>
+            <ul class="tags"><li>@nagendernss</li></ul>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 7 · CP -->
+  <section class="scene" id="arena" data-scene style="--sec:var(--gold)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">05 · Competitive Programming</span>
+        <h2 class="section__title step">Years in the arena.</h2>
+        <div class="arena">
+          <a class="stat step" href="https://www.codechef.com/users/nagendernss" target="_blank" rel="noopener">
+            <svg class="stat__wm"><use href="#ic-cc"/></svg>
+            <span class="stat__plat"><svg class="ic"><use href="#ic-cc"/></svg>CodeChef</span>
+            <span class="stat__big">5<span class="star">★</span></span>
+            <span class="stat__rating">Rating 2026</span>
+            <span class="stat__note">Global Rank 16 · Snackdown 2021</span>
+          </a>
+          <a class="stat step" href="https://codeforces.com/profile/nagendernss" target="_blank" rel="noopener">
+            <svg class="stat__wm"><use href="#ic-cf"/></svg>
+            <span class="stat__plat"><svg class="ic"><use href="#ic-cf"/></svg>Codeforces</span>
+            <span class="stat__big">1595</span>
+            <span class="stat__rating">Specialist</span>
+            <span class="stat__note">Global Rank 202 · Round #797 · 19K+ players</span>
+          </a>
+          <a class="stat step" href="https://leetcode.com/u/nagendernss/" target="_blank" rel="noopener">
+            <svg class="stat__wm"><use href="#ic-lc"/></svg>
+            <span class="stat__plat"><svg class="ic"><use href="#ic-lc"/></svg>LeetCode</span>
+            <span class="stat__big">2052</span>
+            <span class="stat__rating">Knight</span>
+            <span class="stat__note">Global Rank 114 · Biweekly 112 · 30K+ players</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 8 · CONTACT (final, not pinned — natural end of page) -->
+  <section class="scene scene--contact" id="contact" data-scene data-steplen="0.5" style="--sec:var(--emerald)">
+    <div class="scene__pin">
+      <div class="scene__inner">
+        <span class="tab step">06 · Contact</span>
+        <h2 class="contact__pitch step">Let's build something at the edge of AI and infrastructure.</h2>
+        <a class="btn btn--solid btn--lg step" href="mailto:nagendernss.work@gmail.com"><svg class="ic"><use href="#ic-mail"/></svg> nagendernss.work@gmail.com</a>
+        <ul class="contact__links step">
+          <li><a href="https://github.com/nagendernss" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-gh"/></svg>GitHub</a></li>
+          <li><a href="https://linkedin.com/in/nagender-swaroop-srivastava" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-li"/></svg>LinkedIn</a></li>
+          <li><a href="tel:+918058414184"><svg class="ic"><use href="#ic-phone"/></svg>+91 80584 14184</a></li>
         </ul>
-      </article>
-
-      <article class="jobcard reveal-up">
-        <header class="jobcard__head">
-          <div><h3>Clear <em>(ClearTax)</em></h3><span class="jobcard__role">Software Development Engineer</span></div>
-          <span class="jobcard__date">Jun 2024 — Aug 2025 · Bangalore</span>
-        </header>
-        <ul class="jobcard__points">
-          <li><strong>PDF generation service.</strong> Fixed critical DSC &amp; password-protection bugs in a service handling 2,500+ req/min at peak; shipped multi-language field translation with zero-downtime deploys.</li>
-          <li><strong>Revenue-driving auto-renewal.</strong> Architected a microservices solution for addon-based pricing across licensing and order-generation systems — ₹20&nbsp;Cr+ in revenue recovery.</li>
-          <li><strong>Multi-tenant API platform.</strong> Built a chatbot + automated ticketing system with admin-only ticket visibility and strict role-based access control.</li>
-          <li><strong>Enterprise security.</strong> Extended clear-util with an annotation validating user cookies against a vault-stored whitelist — annotation-driven endpoint access control.</li>
-        </ul>
-      </article>
-
-      <article class="jobcard reveal-up">
-        <header class="jobcard__head">
-          <div><h3>FMC Weekend</h3><span class="jobcard__role">Marketing Head · Film &amp; Media Council, IIT&nbsp;BHU</span></div>
-          <span class="jobcard__date">Sep 2022 — Feb 2023 · Varanasi</span>
-        </header>
-        <ul class="jobcard__points">
-          <li><strong>Led marketing for India's largest digital arts fest.</strong> Managed 15+ team members by matching tasks to strengths, and secured 30 sponsors through strategic outreach — a 50% increase over the previous year.</li>
-        </ul>
-      </article>
+        <footer class="foot step">
+          <span>© 2026 Nagender Swaroop Srivastava</span>
+          <span class="foot__built">Built with plain HTML/CSS/JS · hosted on GitHub Pages</span>
+        </footer>
+      </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills" style="--sec:var(--violet)">
-    <span class="tab reveal-up">03 · Skills</span>
-    <h2 class="section__title reveal-up">The toolkit.</h2>
-    <div class="skills">
-      <article class="skillcard reveal-up">
-        <h3><svg class="ic"><use href="#ic-code"/></svg>Languages</h3>
-        <ul><li>Java</li><li>Python</li><li>Go</li><li>C++</li></ul>
-      </article>
-      <article class="skillcard reveal-up">
-        <h3><svg class="ic"><use href="#ic-ai"/></svg>AI / ML</h3>
-        <ul><li>LLM Agents</li><li>Tool Calling</li><li>Prompt Engineering</li><li>OpenAI</li><li>Anthropic SDK</li><li>Azure OpenAI</li><li>LLM Evaluations</li><li>e2b</li><li>ElevenLabs</li><li>Deepgram</li><li>LiveKit</li></ul>
-      </article>
-      <article class="skillcard reveal-up">
-        <h3><svg class="ic"><use href="#ic-server"/></svg>Backend &amp; Infra</h3>
-        <ul><li>Spring Boot</li><li>REST APIs</li><li>Microservices</li><li>AWS (SQS · SNS · Lambda)</li><li>Kubernetes</li><li>Jenkins</li></ul>
-      </article>
-      <article class="skillcard reveal-up">
-        <h3><svg class="ic"><use href="#ic-db"/></svg>Data &amp; Ops</h3>
-        <ul><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>OpenSearch</li><li>Grafana</li><li>New Relic</li><li>Coralogix</li><li>Git · Postman · Retool</li></ul>
-      </article>
-      <article class="skillcard reveal-up">
-        <h3><svg class="ic"><use href="#ic-book"/></svg>Foundations</h3>
-        <ul><li>Data Structures</li><li>Algorithms</li><li>OOP</li><li>DBMS</li><li>Competitive Programming</li></ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects" style="--sec:var(--coral)">
-    <span class="tab reveal-up">04 · Projects</span>
-    <h2 class="section__title reveal-up">Things I've shipped.</h2>
-    <div class="projects">
-      <a class="projcard reveal-up" href="https://github.com/nagendernss/url_shortener" target="_blank" rel="noopener">
-        <div class="projcard__top"><h3>URL Shortener</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
-        <p>A full-stack URL shortener with custom aliases, click tracking, expiration controls and full Swagger/OpenAPI docs. Optimized MongoDB schema with indexing and analytics aggregation for real-time dashboard metrics.</p>
-        <ul class="tags"><li>Java</li><li>Spring Boot</li><li>MongoDB</li><li>Thymeleaf</li><li>Swagger</li></ul>
-      </a>
-      <a class="projcard projcard--ghost reveal-up" href="https://github.com/nagendernss" target="_blank" rel="noopener">
-        <div class="projcard__top"><h3>More on GitHub</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
-        <p>Side experiments, competitive-programming solutions and work-in-progress builds live on my GitHub.</p>
-        <ul class="tags"><li>@nagendernss</li></ul>
-      </a>
-    </div>
-  </section>
-
-  <!-- CP / ARENA -->
-  <section class="section" id="arena" style="--sec:var(--gold)">
-    <span class="tab reveal-up">05 · Competitive Programming</span>
-    <h2 class="section__title reveal-up">Years in the arena.</h2>
-    <div class="arena">
-      <a class="stat reveal-up" href="https://www.codechef.com/users/nagendernss" target="_blank" rel="noopener">
-        <svg class="stat__wm"><use href="#ic-cc"/></svg>
-        <span class="stat__plat"><svg class="ic"><use href="#ic-cc"/></svg>CodeChef</span>
-        <span class="stat__big">5<span class="star">★</span></span>
-        <span class="stat__rating">Rating 2026</span>
-        <span class="stat__note">Global Rank 16 · Snackdown 2021</span>
-      </a>
-      <a class="stat reveal-up" href="https://codeforces.com/profile/nagendernss" target="_blank" rel="noopener">
-        <svg class="stat__wm"><use href="#ic-cf"/></svg>
-        <span class="stat__plat"><svg class="ic"><use href="#ic-cf"/></svg>Codeforces</span>
-        <span class="stat__big">1595</span>
-        <span class="stat__rating">Specialist</span>
-        <span class="stat__note">Global Rank 202 · Round #797 · 19K+ players</span>
-      </a>
-      <a class="stat reveal-up" href="https://leetcode.com/u/nagendernss/" target="_blank" rel="noopener">
-        <svg class="stat__wm"><use href="#ic-lc"/></svg>
-        <span class="stat__plat"><svg class="ic"><use href="#ic-lc"/></svg>LeetCode</span>
-        <span class="stat__big">2052</span>
-        <span class="stat__rating">Knight</span>
-        <span class="stat__note">Global Rank 114 · Biweekly 112 · 30K+ players</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section section--contact" id="contact" style="--sec:var(--emerald)">
-    <span class="tab reveal-up">06 · Contact</span>
-    <div class="contact reveal-up">
-      <h2 class="contact__pitch">Let's build something at the edge of AI and infrastructure.</h2>
-      <a class="btn btn--solid btn--lg" href="mailto:nagendernss.work@gmail.com"><svg class="ic"><use href="#ic-mail"/></svg> nagendernss.work@gmail.com</a>
-      <ul class="contact__links">
-        <li><a href="https://github.com/nagendernss" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-gh"/></svg>GitHub</a></li>
-        <li><a href="https://linkedin.com/in/nagender-swaroop-srivastava" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-li"/></svg>LinkedIn</a></li>
-        <li><a href="tel:+918058414184"><svg class="ic"><use href="#ic-phone"/></svg>+91 80584 14184</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="foot">
-    <span>© 2026 Nagender Swaroop Srivastava</span>
-    <span class="foot__built">Built with plain HTML/CSS/JS · hosted on GitHub Pages</span>
-  </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
