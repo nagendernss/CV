@@ -50,6 +50,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ---------- icons ---------- */
+.ic { width: 1.05em; height: 1.05em; fill: currentColor; flex: none; display: inline-block; vertical-align: -.15em; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -180,8 +183,7 @@ a { color: inherit; text-decoration: none; }
 .btn--solid:hover { background: var(--paper); border-color: var(--paper); }
 
 .hero__socials { list-style: none; display: flex; gap: 26px; flex-wrap: wrap; margin-top: 40px; font-family: var(--mono); font-size: 13px; }
-.hero__socials a { color: var(--muted); position: relative; transition: color .2s; }
-.hero__socials a::after { content: "↗"; margin-left: 4px; opacity: .4; }
+.hero__socials a { color: var(--muted); display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
 .hero__socials a:hover { color: var(--accent); }
 
 .scroll-hint { position: absolute; bottom: 26px; left: var(--pad); font-family: var(--mono); font-size: 11px; color: var(--muted-2); letter-spacing: .2em; text-transform: uppercase; }
@@ -250,7 +252,8 @@ a { color: inherit; text-decoration: none; }
 /* ---------- skills ---------- */
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .skills__group { background: var(--ink-2); padding: 28px 26px; }
-.skills__group h3 { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 18px; }
+.skills__group h3 { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; gap: 9px; }
+.skills__group h3 .ic { width: 16px; height: 16px; }
 .skills__group ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .skills__group li { font-size: 13.5px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; color: var(--body); transition: all .2s; }
 .skills__group li:hover { border-color: var(--accent); color: var(--paper); }
@@ -280,7 +283,10 @@ a { color: inherit; text-decoration: none; }
 .stat::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% -10%, color-mix(in srgb, var(--lime) 16%, transparent), transparent 55%); opacity: 0; transition: opacity .3s; }
 .stat:hover { transform: translateY(-4px); border-color: var(--lime-dim); }
 .stat:hover::after { opacity: 1; }
-.stat__plat { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.stat__wm { position: absolute; top: -14px; right: -14px; width: 118px; height: 118px; fill: currentColor; color: var(--paper); opacity: .05; pointer-events: none; z-index: 0; transition: opacity .3s, color .3s; }
+.stat:hover .stat__wm { opacity: .12; color: var(--accent); }
+.stat__plat, .stat__big, .stat__rating, .stat__note { position: relative; z-index: 1; }
+.stat__plat { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
 .stat__big { font-family: var(--serif); font-size: clamp(52px, 8vw, 74px); line-height: 1; color: var(--accent); }
 .stat__big .star { font-size: .5em; }
 .stat__rating { font-size: 15px; font-weight: 600; color: var(--paper); }
@@ -290,10 +296,10 @@ a { color: inherit; text-decoration: none; }
 .section--contact { text-align: left; }
 .contact__pitch { font-family: var(--serif); font-size: clamp(28px, 5vw, 52px); line-height: 1.15; max-width: 16ch; margin-bottom: 40px; }
 .contact__pitch em { color: var(--accent); font-style: italic; }
-.contact__mail { display: inline-block; font-family: var(--mono); font-size: clamp(18px, 3.5vw, 30px); color: var(--paper); border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color .2s; }
+.contact__mail { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: clamp(18px, 3.5vw, 30px); color: var(--paper); border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color .2s; }
 .contact__mail:hover { color: var(--accent); }
 .contact__links { list-style: none; display: flex; gap: 26px; flex-wrap: wrap; margin-top: 40px; font-family: var(--mono); font-size: 14px; }
-.contact__links a { color: var(--muted); transition: color .2s; }
+.contact__links a { color: var(--muted); display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
 .contact__links a:hover { color: var(--accent); }
 
 /* ---------- footer ---------- */
