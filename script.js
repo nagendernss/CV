@@ -2,6 +2,17 @@
 (function () {
   "use strict";
 
+  // Theme toggle (initial theme already set in <head> to avoid flash)
+  var toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  }
+
   // Reveal on scroll
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
