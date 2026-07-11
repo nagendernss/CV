@@ -135,24 +135,34 @@ a { color: inherit; text-decoration: none; }
 .hero__socials a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); transition: color .2s; }
 .hero__socials a:hover { color: var(--text); }
 
-/* ---------- 3D showcase (tuck under desk) ---------- */
-.showcase { position: relative; height: 210vh; }
+/* ---------- 3D showcase (device lies down & tucks under the desk) ---------- */
+.showcase { position: relative; height: 260vh; }
 .showcase__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
-.stage { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1300px; perspective-origin: 50% 30%; }
+/* single perspective lives here on the stage — NOT on the device */
+.stage { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; perspective: 1500px; perspective-origin: 50% 34%; }
+
+.ground {
+  position: absolute; left: 50%; top: 62%; z-index: 1; pointer-events: none;
+  width: min(560px, 74vw); height: 58px;
+  transform: translate(-50%, -50%) scaleX(calc(.7 + var(--p, 0) * .8));
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 68%);
+  filter: blur(16px);
+  opacity: calc(.18 + var(--p, 0) * .42);
+}
+
 .device {
-  width: min(680px, 86vw);
+  position: relative; z-index: 2;
+  width: min(700px, 88vw);
   border-radius: 16px; overflow: hidden;
   background: #0e0f14; border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04) inset;
-  transform-style: preserve-3d;
+  box-shadow: 0 40px 90px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
+  transform-origin: 50% 100%;   /* hinge at the bottom edge */
   transform:
-    perspective(1300px)
-    rotateX(calc(var(--p, 0) * 64deg))
-    translateY(calc(var(--p, 0) * 52vh))
-    translateZ(calc(var(--p, 0) * -180px))
-    scale(calc(1 - var(--p, 0) * .05));
-  transform-origin: 50% 100%;
-  will-change: transform;
+    rotateX(calc(6deg + var(--p, 0) * 78deg))
+    translateY(calc(var(--p, 0) * 28vh))
+    scale(calc(1 - var(--p, 0) * .04));
+  opacity: clamp(0, calc((1 - var(--p, 0)) * 6), 1);   /* fades only in the last ~17% as it sinks under */
+  will-change: transform, opacity;
 }
 .device__bar { display: flex; align-items: center; gap: 12px; padding: 11px 16px; background: #16171d; border-bottom: 1px solid rgba(255,255,255,.08); }
 .device__dots { display: inline-flex; gap: 6px; }
@@ -165,19 +175,35 @@ a { color: inherit; text-decoration: none; }
 .cursor { color: var(--emerald); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
+/* opaque plane that occludes the device as it sinks below the lip */
 .desk {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 42vh; z-index: 5;
-  background: linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 22%, var(--bg) 100%);
-  border-top: 1px solid var(--line-2);
-  box-shadow: 0 -24px 60px color-mix(in srgb, var(--bg) 80%, transparent);
+  position: absolute; left: 0; right: 0; bottom: 0; height: 40vh; z-index: 5;
+  background: var(--bg);
+  box-shadow: inset 0 44px 60px -34px color-mix(in srgb, var(--text) 10%, transparent);
 }
-.desk::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--sec), transparent); opacity: .7; }
-.desk__label { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; white-space: nowrap; }
+.desk::before {  /* glowing front lip = the desk edge */
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sec), transparent);
+  box-shadow: 0 0 26px 1px var(--sec); opacity: .85;
+}
+.desk::after {   /* receding surface grid */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(90deg, color-mix(in srgb, var(--text) 7%, transparent) 0 1px, transparent 1px 66px);
+  -webkit-mask: linear-gradient(180deg, #000, transparent 60%);
+          mask: linear-gradient(180deg, #000, transparent 60%);
+  opacity: .55;
+}
+.desk__label {
+  position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 12px; color: var(--muted);
+  letter-spacing: .05em; white-space: nowrap;
+  opacity: calc(1 - var(--p, 0) * 2.6);
+}
 @media (prefers-reduced-motion: reduce) {
   .showcase { height: auto; }
-  .showcase__sticky { position: static; height: auto; padding: 60px 0; }
-  .device { transform: none !important; }
-  .desk { display: none; }
+  .showcase__sticky { position: static; height: auto; padding: 60px 0; overflow: visible; }
+  .device { transform: rotateX(4deg) !important; opacity: 1 !important; }
+  .ground, .desk { display: none; }
 }
 
 /* ---------- impact cards ---------- */

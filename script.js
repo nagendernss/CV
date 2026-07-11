@@ -43,39 +43,45 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   Object.keys(tabFor).forEach(function (id) { spy.observe(document.getElementById(id)); });
 
-  // ---- scroll-driven 3D + parallax (rAF-throttled) ----
+  // ---- scroll-driven 3D + parallax (damped lerp → smooth both ways) ----
   var showcase = document.getElementById("showcase");
   var heroBg = document.querySelector(".hero__bg");
-  var ticking = false;
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
-  function onFrame() {
-    ticking = false;
-    var y = window.scrollY || window.pageYOffset;
+  // progress 0..1 through the pinned showcase, recomputed every frame
+  // (recompute + lerp is what makes scrolling UP reverse cleanly)
+  function targetProgress() {
+    if (!showcase) return 0;
+    var rect = showcase.getBoundingClientRect();
+    var scrollable = showcase.offsetHeight - window.innerHeight;
+    return clamp(-rect.top / (scrollable || 1), 0, 1);
+  }
 
-    // hero background parallax (keeps blob drift animations intact)
+  var curP = targetProgress();
+
+  function render() {
+    var tp = targetProgress();
+    curP += (tp - curP) * 0.14;                       // damping
+    if (Math.abs(tp - curP) < 0.0004) curP = tp;      // snap when settled
+    if (showcase) showcase.style.setProperty("--p", curP.toFixed(4));
+
+    var y = window.scrollY || window.pageYOffset || 0;
     if (heroBg && y < window.innerHeight) {
       heroBg.style.transform = "translateY(" + (y * 0.28).toFixed(1) + "px)";
     }
-
-    // showcase: device tucks under the desk as the pinned section scrolls
-    if (showcase) {
-      var rect = showcase.getBoundingClientRect();
-      var scrollable = showcase.offsetHeight - window.innerHeight;
-      var p = clamp(-rect.top / (scrollable || 1), 0, 1);
-      showcase.style.setProperty("--p", p.toFixed(4));
-    }
+    requestAnimationFrame(render);
   }
 
   function onScroll() {
     if (nav) nav.classList.toggle("scrolled", (window.scrollY || 0) > 20);
-    if (reduce) return;
-    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
   }
-
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
-  if (!reduce) requestAnimationFrame(onFrame);
+
+  if (!reduce) {
+    requestAnimationFrame(render);
+  } else if (showcase) {
+    showcase.style.setProperty("--p", "0");
+  }
 })();
