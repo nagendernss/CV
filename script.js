@@ -62,7 +62,7 @@
         });
       });
       scene.style.setProperty("--inv", (1 / dur).toFixed(3));
-      scene.style.setProperty("--scenelen", clamp(110 + m * 38, 170, 320));
+      scene.style.setProperty("--scenelen", clamp(110 + m * 34, 170, 290));
     }
     scenes.push(entry);
   });
@@ -136,8 +136,11 @@
         var s = scenes[i];
         var rect = s.el.getBoundingClientRect();
         if (rect.bottom < -80 || rect.top > vh + 80) continue;   // offscreen
-        var denom = s.el.offsetHeight - vh;
-        var p = clamp(-rect.top / (denom > 0 ? denom : 1), 0, 1);
+        // progress over the FULL travel (entry slide + pinned stretch) so the
+        // first steps are already revealing while the scene slides into view —
+        // no blank screen between scenes
+        var total = s.el.offsetHeight;
+        var p = clamp((vh - rect.top) / (total > 0 ? total : 1), 0, 1);
         if (Math.abs(p - s.p) > 0.0004) {
           s.p = p;
           s.el.style.setProperty("--p", p.toFixed(4));
