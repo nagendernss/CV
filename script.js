@@ -46,7 +46,7 @@
       entry.deck = { n: n, lead: lead, seg: seg };
       entry.dots = scene.querySelectorAll(".deck__dots i");
       scene.style.setProperty("--scenelen", 140 + n * 110);
-    } else if (!scene.classList.contains("scene--showcase")) {
+    } else {
       // step scene: items reveal one by one
       var steps = scene.querySelectorAll(".step");
       var m = steps.length;
