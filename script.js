@@ -81,6 +81,17 @@
   }
 
   // ---- smooth anchor navigation ----
+  // Scene links land at the END of the pin (section fully revealed) instead of
+  // making the visitor rewatch the reveal. Exception: the Work deck (#work)
+  // lands at the start so job cards still arrive one after another.
+  function anchorDestination(target) {
+    if (fallback || !target.hasAttribute("data-scene") || target.id === "work") {
+      return target;                                   // element top (native behavior)
+    }
+    var end = target.offsetTop + target.offsetHeight - window.innerHeight;
+    return Math.max(target.offsetTop, end);            // p≈1: everything revealed
+  }
+
   document.querySelectorAll("[data-scrollto]").forEach(function (a) {
     a.addEventListener("click", function (ev) {
       var id = a.getAttribute("href");
@@ -88,8 +99,10 @@
       var target = document.querySelector(id);
       if (!target) return;
       ev.preventDefault();
-      if (lenis) lenis.scrollTo(target, { offset: 0 });
-      else target.scrollIntoView({ behavior: "smooth" });
+      var dest = anchorDestination(target);
+      if (lenis) lenis.scrollTo(dest, { offset: 0 });
+      else if (typeof dest === "number") window.scrollTo({ top: dest, behavior: "smooth" });
+      else dest.scrollIntoView({ behavior: "smooth" });
     });
   });
 
