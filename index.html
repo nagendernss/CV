@@ -250,21 +250,33 @@
         <span class="tab step">04 · Projects</span>
         <h2 class="section__title step">Things I've shipped.</h2>
         <div class="projects">
-          <a class="projcard step" href="https://repolens-x82l.onrender.com/" target="_blank" rel="noopener">
-            <div class="projcard__top"><h3>repolens</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
-            <p>Live AI agent that answers questions about any public GitHub repo — raw tool-calling loop (no framework), provider adapters on raw httpx, SSE-streamed reasoning, per-repo chat with follow-ups, and an eval harness that publishes real accuracy/latency/cost numbers. Try it live, or read the code.</p>
+          <article class="projcard step">
+            <div class="projcard__top"><h3>repolens</h3></div>
+            <p>Live AI agent that answers questions about any public GitHub repo — raw tool-calling loop (no framework), provider adapters on raw httpx, SSE-streamed reasoning, per-repo chat with follow-ups, and an eval harness that publishes real accuracy/latency/cost numbers.</p>
             <ul class="tags"><li>Python</li><li>FastAPI</li><li>LLM Agents</li><li>Tool Calling</li><li>Evals</li><li>SSE</li><li>Docker</li></ul>
-          </a>
-          <a class="projcard step" href="https://doclens-05fb.onrender.com/" target="_blank" rel="noopener">
-            <div class="projcard__top"><h3>doclens</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
-            <p>Live RAG app — upload a PDF or paste a link, ask questions, get answers cited to the page. Hand-built vector index (numpy cosine), Gemini embeddings, an SSRF-hardened URL fetcher, per-document follow-up chat, and a retrieval-quality eval harness (recall@5 · MRR · faithfulness). Try it live, or read the code.</p>
+            <div class="projcard__actions">
+              <a class="projbtn projbtn--live" href="https://repolens-x82l.onrender.com/" target="_blank" rel="noopener">Try live <svg class="ic"><use href="#ic-arrow"/></svg></a>
+              <a class="projbtn" href="https://github.com/nagendernss/repolens" target="_blank" rel="noopener">Repo ↗</a>
+            </div>
+          </article>
+          <article class="projcard step">
+            <div class="projcard__top"><h3>doclens</h3></div>
+            <p>Live RAG app — upload a PDF or paste a link, ask questions, get answers cited to the page. Hand-built vector index (numpy cosine), Gemini embeddings, an SSRF-hardened URL fetcher, per-document follow-up chat, and a retrieval-quality eval harness (recall@5 · MRR · faithfulness).</p>
             <ul class="tags"><li>Python</li><li>RAG</li><li>Embeddings</li><li>Vector Search</li><li>FastAPI</li><li>Retrieval Evals</li><li>Docker</li></ul>
-          </a>
-          <a class="projcard step" href="https://github.com/nagendernss/url_shortener" target="_blank" rel="noopener">
-            <div class="projcard__top"><h3>URL Shortener</h3><svg class="ic projcard__arrow"><use href="#ic-arrow"/></svg></div>
-            <p>Full-stack URL shortener with custom aliases, click tracking, expiration controls and Swagger/OpenAPI docs. Optimized MongoDB schema with indexing and analytics aggregation.</p>
-            <ul class="tags"><li>Java</li><li>Spring Boot</li><li>MongoDB</li><li>Thymeleaf</li><li>Swagger</li></ul>
-          </a>
+            <div class="projcard__actions">
+              <a class="projbtn projbtn--live" href="https://doclens-05fb.onrender.com/" target="_blank" rel="noopener">Try live <svg class="ic"><use href="#ic-arrow"/></svg></a>
+              <a class="projbtn" href="https://github.com/nagendernss/doclens" target="_blank" rel="noopener">Repo ↗</a>
+            </div>
+          </article>
+          <article class="projcard step">
+            <div class="projcard__top"><h3>URL Shortener</h3></div>
+            <p>Live full-stack URL shortener — custom aliases, expiry, click tracking and a real-time analytics dashboard (clicks over time + by referrer). Java · Spring Boot · MongoDB with Swagger/OpenAPI docs, containerized and deployed.</p>
+            <ul class="tags"><li>Java</li><li>Spring Boot</li><li>MongoDB</li><li>Thymeleaf</li><li>Docker</li><li>Analytics</li></ul>
+            <div class="projcard__actions">
+              <a class="projbtn projbtn--live" href="https://url-shortener-java-yc83.onrender.com/" target="_blank" rel="noopener">Try live <svg class="ic"><use href="#ic-arrow"/></svg></a>
+              <a class="projbtn" href="https://github.com/nagendernss/url_shortener" target="_blank" rel="noopener">Repo ↗</a>
+            </div>
+          </article>
           <article class="projcard step">
             <div class="projcard__top"><h3>Enterprise Management System</h3></div>
             <p>Internship project at Chawla Ispat Pvt Ltd — an enterprise management system with CRUD workflows, JWT authentication, automated backups and RESTful APIs.</p>
