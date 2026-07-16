@@ -261,8 +261,8 @@
           </article>
           <article class="projcard step">
             <div class="projcard__top"><h3>doclens</h3></div>
-            <p>Live RAG app — upload a PDF or paste a link, ask questions, get answers cited to the page. Hand-built vector index (numpy cosine), Gemini embeddings, an SSRF-hardened URL fetcher, per-document follow-up chat, and a retrieval-quality eval harness (recall@5 · MRR · faithfulness).</p>
-            <ul class="tags"><li>Python</li><li>RAG</li><li>Embeddings</li><li>Vector Search</li><li>FastAPI</li><li>Retrieval Evals</li><li>Docker</li></ul>
+            <p>Live RAG app — upload a PDF or paste a link, ask questions, get answers cited to the page. Two-stage retrieval (hand-built BM25 ⊕ dense cosine, RRF-fused, with an optional LLM reranker), a per-request trace waterfall over every pipeline stage, an SSRF-hardened fetcher, per-document follow-up chat, and a per-mode eval harness (recall@5 · MRR · faithfulness) that measures exactly when reranking helps versus hurts.</p>
+            <ul class="tags"><li>Python</li><li>RAG</li><li>Hybrid Search</li><li>Reranking</li><li>Observability</li><li>FastAPI</li><li>Retrieval Evals</li><li>Docker</li></ul>
             <div class="projcard__actions">
               <a class="projbtn projbtn--live" href="https://doclens-05fb.onrender.com/" target="_blank" rel="noopener">Try live <svg class="ic"><use href="#ic-arrow"/></svg></a>
               <a class="projbtn" href="https://github.com/nagendernss/doclens" target="_blank" rel="noopener">Repo ↗</a>
